@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>İlk 11 Kurma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <!-- Takım Seçimi -->
+        <div id="team-section" class="section">
+            <h2>Takımınızı Seçin</h2>
+            <input type="text" id="team-name" placeholder="Takım adını girin">
+            <input type="file" id="team-logo" accept="image/*">
+            <button onclick="submitTeam()">İlerle</button>
+        </div>
+
+        <!-- Formasyon Seçimi -->
+        <div id="formation-section" class="section hidden">
+            <h2>Formasyon Seçin</h2>
+            <select id="formation-select">
+                <option value="442">4-4-2</option>
+                <option value="433">4-3-3</option>
+                <option value="352">3-5-2</option>
+            </select>
+            <button onclick="submitFormation()">İlerle</button>
+        </div>
+
+        <!-- Saha Görünümü -->
+        <div id="field-section" class="section hidden">
+            <div class="team-header">
+                <div class="team-info">
+                    <img id="display-team-logo" src="" alt="Takım Logo">
+                    <h3 id="display-team-name"></h3>
+                </div>
+                <div class="formation-info">
+                    <span id="display-formation"></span>
+                </div>
+            </div>
+            <div id="field"></div>
+            
+            <!-- Yeni butonlar -->
+            <div class="action-buttons">
+                <button id="complete-team" onclick="completeTeam()">Kadroyu Tamamla</button>
+                <div id="share-buttons" class="hidden">
+                    <button onclick="downloadTeam()">
+                        <i class="fas fa-download"></i> İndir
+                    </button>
+                    <button onclick="shareTwitter()">
+                        <i class="fab fa-x-twitter"></i> X'te Paylaş
+                    </button>
+                    <button onclick="shareInstagram()">
+                        <i class="fab fa-instagram"></i> Instagram'da Paylaş
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Oyuncu Seçim Modalı -->
+    <div id="player-modal" class="modal hidden" style="display: none;">
+        <div class="modal-content">
+            <h3>Oyuncu Seç</h3>
+            <input type="text" id="player-search" placeholder="Oyuncu ara...">
+            <div id="search-results"></div>
+            <button onclick="closeModal()">Kapat</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
